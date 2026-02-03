@@ -117,19 +117,23 @@ function playMusic() {
 // BOTÓN SÍ
 function sayYes() {
   const music = document.getElementById("music");
-  music.play();
+  music.play(); // se asegura de que siga la música
 
-  document.body.innerHTML = `
-    <div style="
-      height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      background:linear-gradient(135deg, #ffb3d9, #fff1c1);
-      text-align:center;
-    ">
-      <img src="snooopy.gif" style="width:180px;">
+  // Ocultamos la tarjeta principal
+  document.getElementById("card").style.display = "none";
+
+  // Creamos la nueva sección sin reemplazar todo el body
+  const newSection = document.createElement("div");
+  newSection.style.height = "100vh";
+  newSection.style.display = "flex";
+  newSection.style.flexDirection = "column";
+  newSection.style.justifyContent = "center";
+  newSection.style.alignItems = "center";
+  newSection.style.textAlign = "center";
+  newSection.style.background = "linear-gradient(135deg, #ffb3d9, #fff1c1)";
+
+  newSection.innerHTML = `
+      <img src="snooopy.gif" style="width:180px; background: transparent;">
       <h1>¡YAYYY! 🥰💘</h1>
       <p>
         Al darle que sí, estoy sonriendo<br>
@@ -137,12 +141,12 @@ function sayYes() {
         No puedo prometer mucho,<br>
         solo que las risas no faltarán ❤️
       </p>
-    </div>
   `;
+
+  document.body.appendChild(newSection);
 
   startHearts();
 }
-
 // CORAZONES INFINITOS
 function startHearts() {
   setInterval(() => {
