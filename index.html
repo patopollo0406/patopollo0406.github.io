@@ -81,12 +81,12 @@ button {
 <body>
 
 <!-- Música instrumental -->
-<audio id="music" autoplay loop>
+<audio id="music" loop>
   <source src="music.m4a" type="audio/mpeg">
 </audio>
 
 <div class="card" id="card">
-  <img src="snoopylove.png">
+  <img src="snoopyy.png">
 
   <h1>Angie Alexandra💕</h1>
 
@@ -99,15 +99,19 @@ button {
     <strong>Lugar:</strong> sorpresa,<br>
     los detalles se revelarán más adelante 😉
   </p>
-
+  
+  <button onclick="playMusic()">▶️ Reproducir música</button>
+  <br><br>
   <button id="yes" onclick="sayYes()">¡Sí! 💖</button>
   <button id="no" onmouseover="moveNo()">No 😅</button>
+
 </div>
 
 <script>
-function sayYes() {
-  // Asegura que la música suene sí o sí
-  document.getElementById("music").play();
+function playMusic() {
+  const music = document.getElementById("music");
+  music.play();
+}
 
   document.body.innerHTML = `
   <div style="
@@ -119,7 +123,7 @@ function sayYes() {
     background:linear-gradient(135deg, #ffb3d9, #fff1c1);
     text-align:center;
   ">
-    <img src="snoopi.gif" style="width:180px;">
+    <img src="snooopy.gif" style="width:180px;">
     <h1>¡YAYYY! 🥰💘</h1>
     <p>
       Al darle que sí, estoy sonriendo 
