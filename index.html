@@ -80,83 +80,89 @@ button {
 
 <body>
 
-<!-- Música instrumental -->
+<!-- AUDIO -->
 <audio id="music" loop>
-  <source src="music.m4a" type="audio/mpeg">
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
 
+<!-- TARJETA PRINCIPAL -->
 <div class="card" id="card">
-  <img src="snoopyy.png">
+  <img src="snoopyy.png" alt="Snoopy">
 
-  <h1>Angie Alexandra💕</h1>
+  <h1>Angie Alexandra 💕</h1>
 
   <p>
-    Mmmm... una niña coleccionista de canciones <br>
+    Mmmm... una niña coleccionista de canciones 💫<br>
     Gracias por todo ❤️
     <br><br>
     ¿Vamos por nuestro primer San Valentín o qué?
     <br><br>
-    <strong>Lugar:</strong> sorpresa,<br>
-    los detalles se revelarán más adelante 😉
+    <strong>Lugar:</strong> Sorpresa,<br>
+    Los detalles se revelarán más adelante 😉
   </p>
-  
+
   <button onclick="playMusic()">▶️ Reproducir música</button>
   <br><br>
   <button id="yes" onclick="sayYes()">¡Sí! 💖</button>
   <button id="no" onmouseover="moveNo()">No 😅</button>
-
 </div>
 
 <script>
+// BOTÓN DE MÚSICA
 function playMusic() {
   const music = document.getElementById("music");
   music.play();
 }
 
+// BOTÓN SÍ
+function sayYes() {
+  const music = document.getElementById("music");
+  music.play();
+
   document.body.innerHTML = `
-  <div style="
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg, #ffb3d9, #fff1c1);
-    text-align:center;
-  ">
-    <img src="snooopy.gif" style="width:180px;">
-    <h1>¡YAYYY! 🥰💘</h1>
-    <p>
-      Al darle que sí, estoy sonriendo 
-      como tú al no poder darle que no.<br>
-      No puedo prometer mucho, solo que las risas no faltarán ❤️
-    </p>
-  </div>
+    <div style="
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg, #ffb3d9, #fff1c1);
+      text-align:center;
+    ">
+      <img src="snooopy.gif" style="width:180px;">
+      <h1>¡YAYYY! 🥰💘</h1>
+      <p>
+        Al darle que sí, estoy sonriendo<br>
+        como tú al no poder darle que no 😌<br><br>
+        No puedo prometer mucho,<br>
+        solo que las risas no faltarán ❤️
+      </p>
+    </div>
   `;
 
   startHearts();
 }
 
+// CORAZONES INFINITOS
 function startHearts() {
   setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
-    heart.innerText = ["💖","💗","💞","💕"][Math.floor(Math.random() * 4)];
+    heart.innerText = ["💖","💗","💞","💕","❤️"][Math.floor(Math.random() * 5)];
     heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (18 + Math.random() * 20) + "px";
     heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-    heart.style.fontSize = (20 + Math.random() * 15) + "px";
     document.body.appendChild(heart);
 
-    // Se eliminan para no saturar el navegador,
-    // pero el efecto NUNCA se detiene
     setTimeout(() => heart.remove(), 8000);
-  }, 200);
+  }, 180);
 }
 
-
+// BOTÓN NO ESCAPA
 function moveNo() {
   const button = document.getElementById("no");
-  const x = Math.random() * (window.innerWidth - 100);
-  const y = Math.random() * (window.innerHeight - 50);
+  const x = Math.random() * (window.innerWidth - 120);
+  const y = Math.random() * (window.innerHeight - 60);
   button.style.left = x + "px";
   button.style.top = y + "px";
 }
@@ -164,3 +170,4 @@ function moveNo() {
 
 </body>
 </html>
+
